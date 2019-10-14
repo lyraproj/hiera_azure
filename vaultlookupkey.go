@@ -9,10 +9,10 @@ import (
 	"github.com/Azure/azure-sdk-for-go/profiles/latest/keyvault/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/auth"
 	"github.com/Azure/go-autorest/autorest"
+	"github.com/lyraproj/dgo/dgo"
 	"github.com/lyraproj/hierasdk/hiera"
 	"github.com/lyraproj/hierasdk/plugin"
 	"github.com/lyraproj/hierasdk/register"
-	"github.com/lyraproj/hierasdk/vf"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 }
 
 // AzureKeyVaultLookupKey looks up a single value from an Azure Key Vault
-func AzureKeyVaultLookupKey(hc hiera.ProviderContext, key string) vf.Data {
+func AzureKeyVaultLookupKey(hc hiera.ProviderContext, key string) dgo.Value {
 	if key == `lookup_options` {
 		return nil
 	}
@@ -48,7 +48,7 @@ func AzureKeyVaultLookupKey(hc hiera.ProviderContext, key string) vf.Data {
 		}
 		panic(err)
 	}
-	return vf.ToData(*resp.Value)
+	return hc.ToData(*resp.Value)
 }
 
 func ResponseWasStatusCode(resp autorest.Response, statusCode int) bool {
