@@ -8,8 +8,8 @@ require (
 	github.com/Azure/go-autorest/autorest/azure/auth v0.3.0 // indirect
 	github.com/Azure/go-autorest/autorest/to v0.3.0 // indirect
 	github.com/Azure/go-autorest/autorest/validation v0.2.0 // indirect
-	github.com/lyraproj/dgo v0.2.0
-	github.com/lyraproj/hierasdk v0.1.0
+	github.com/lyraproj/dgo v0.4.1
+	github.com/lyraproj/hierasdk v0.4.1
 )
 
 replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.3.0+incompatible
